@@ -1,0 +1,19 @@
+@use "@angular/material" as mat;
+
+$open-sans: "Open Sans";
+
+$open-sans-regular-level: mat.define-typography-level(
+  $font-family: $open-sans,
+  $font-weight: 400,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+
+$open-sans-bold-level: mat.define-typography-level(
+  $font-family: $open-sans,
+  $font-weight: 600,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
