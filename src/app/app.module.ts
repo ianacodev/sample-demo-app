@@ -5,8 +5,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // ngrx
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers, effects, CustomSerializer } from './store';
 // features
 import { AppRoutingModule } from './app-routing.module';
 // components
@@ -20,11 +21,11 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    StoreModule.forRoot({
-      router: routerReducer,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer,
     }),
-    EffectsModule.forRoot(),
-    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
