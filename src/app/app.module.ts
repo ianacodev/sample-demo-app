@@ -11,6 +11,7 @@ import { reducers, effects, CustomSerializer } from './store';
 // features
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { MainModule } from './main/main.module';
 // components
 import { AppComponent } from './app.component';
 // env
@@ -34,6 +35,7 @@ import { environment } from '../environments/environment';
     }),
     FlexLayoutModule,
     CoreModule,
+    MainModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
