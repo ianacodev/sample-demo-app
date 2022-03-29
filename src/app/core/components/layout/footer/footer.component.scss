@@ -1,0 +1,6 @@
+@import "colorography";
+
+.footer {
+  border-top: 0.063rem solid map-get($windy-palette, 500);
+  padding: 1rem;
+}

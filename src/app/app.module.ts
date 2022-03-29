@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, effects, CustomSerializer } from './store';
 // features
 import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
 // components
 import { AppComponent } from './app.component';
 // env
@@ -32,6 +33,7 @@ import { environment } from '../environments/environment';
       autoPause: true,
     }),
     FlexLayoutModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
