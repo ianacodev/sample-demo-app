@@ -1,0 +1,42 @@
+@import "colorography";
+
+.product-details {
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    margin: 0.5em 0;
+  }
+
+  &__label {
+    color: map-get($bark-palette, 400);
+    font-size: 1rem;
+  }
+
+  &__status {
+    color: map-get($bark-palette, 500);
+    border: 0.063rem solid map-get($bark-palette, 100);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    word-break: break-word;
+  }
+}

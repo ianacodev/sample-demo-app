@@ -1,1 +1,28 @@
-<p>product-item works!</p>
+<div class="product-item">
+  <div class="product-item__header">
+    <button class="product-item__button" mat-button (click)="onBack()">
+      <span fxLayout="row" fxLayoutAlign="center" fxLayoutGap="3px">
+        <img src="assets/icons/chevron-left-icon.svg" alt="<" />
+        <span>Back</span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="product-item__content"
+    *ngIf="(product$ | async)?.details as productDetails"
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutGap="30px"
+  >
+    <div class="product-item__panel product-item__panel--left" fxFlex="1 0 0">
+      <div class="product-item__image-container">
+        <app-svg [color]="productDetails.colorHex"></app-svg>
+      </div>
+    </div>
+    <div class="product-item__panel product-item__panel--right" fxFlex="1 0 0">
+      <app-product-details
+        [productDetails]="productDetails"
+      ></app-product-details>
+    </div>
+  </div>
+</div>

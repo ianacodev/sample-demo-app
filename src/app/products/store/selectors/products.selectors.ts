@@ -2,6 +2,7 @@
 import { createSelector } from '@ngrx/store';
 import * as fromReducers from '../reducers';
 import * as fromProductsReducer from '../reducers/products.reducer';
+import * as fromRootStore from '../../../store';
 
 export const selectProductsState = createSelector(
   fromReducers.selectProductsFeatureState,
@@ -36,6 +37,12 @@ export const selectProducts = createSelector(
 export const selectProductIds = createSelector(
   selectProductsState,
   fromProductsReducer.selectProductIds
+);
+
+export const selectProductByRouteParam = createSelector(
+  selectProductEntities,
+  fromRootStore.selectRouterParam('productId'),
+  (entities, productId) => entities[productId]
 );
 
 // error

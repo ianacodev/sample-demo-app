@@ -8,6 +8,14 @@ export const selectRouterState = createSelector(
   (state) => state.state
 );
 
+export const selectRouterParams = createSelector(
+  selectRouterState,
+  fromRouterReducer.selectRouterParams
+);
+
+export const selectRouterParam = (paramKey: string) =>
+  createSelector(selectRouterParams, (params) => params && params[paramKey]);
+
 export const selectRouterQueryParams = createSelector(
   selectRouterState,
   fromRouterReducer.selectRouterQueryParams
@@ -15,7 +23,6 @@ export const selectRouterQueryParams = createSelector(
 
 export const selectRouterQueryParam = (paramKey: string) =>
   createSelector(
-    selectRouterState,
     selectRouterQueryParams,
-    (state, queryParams) => queryParams && queryParams[paramKey]
+    (queryParams) => queryParams && queryParams[paramKey]
   );
