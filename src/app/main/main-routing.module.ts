@@ -5,8 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 export const mainRoutes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'products',
     pathMatch: 'full',
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('../products/products.module').then((m) => m.ProductsModule),
   },
 ];
 
