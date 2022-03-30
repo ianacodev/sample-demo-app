@@ -1,0 +1,10 @@
+@import "colorography";
+
+.products-header {
+  border-bottom: 0.063rem solid map-get($windy-palette, 500);
+  margin-bottom: 2rem;
+
+  &__panel {
+    padding: 1rem;
+  }
+}

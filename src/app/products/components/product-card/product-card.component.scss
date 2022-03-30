@@ -1,0 +1,17 @@
+@import "colorography";
+
+.product-card {
+  &__image-container {
+    background: map-get($windy-palette, 500);
+    min-width: 11.5rem;
+    min-height: 15rem;
+  }
+
+  &__content {
+    padding: 1rem 0;
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+}
