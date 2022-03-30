@@ -1,0 +1,18 @@
+@import "colorography";
+
+.product-item {
+  &__header {
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+    vertical-align: middle;
+  }
+
+  &__image-container {
+    background: map-get($windy-palette, 500);
+    display: inline-block;
+    min-width: 11.5rem;
+    min-height: 15rem;
+  }
+}

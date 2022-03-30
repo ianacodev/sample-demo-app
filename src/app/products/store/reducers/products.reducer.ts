@@ -53,6 +53,6 @@ const { selectAll, selectEntities, selectIds } = productsAdapter.getSelectors();
 export const selectProductsLoading = (state: ProductsState) => state.loading;
 export const selectProductsLoaded = (state: ProductsState) => state.loaded;
 export const selectProductsError = (state: ProductsState) => state.error;
+export const selectProductIds = (state: ProductsState) => state.ids as string[];
 export const selectAllProducts = selectAll;
 export const selectProductEntities = selectEntities;
-export const selectProductIds = selectIds;
