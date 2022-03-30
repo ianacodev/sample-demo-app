@@ -1,18 +1,24 @@
-<div class="product-card" *ngIf="product?.details as details">
-  <div class="product-card__image-container">
-    <app-svg [color]="details.colorHex"></app-svg>
-  </div>
-  <div
-    class="product-card__content"
-    fxLayout="row"
-    fxLayoutAlign="space-between center"
+<div class="product-card" *ngIf="product">
+  <a
+    class="product-card__link"
+    [routerLink]="['/products', product.id]"
+    *ngIf="product.details as details"
   >
-    <div class="product-card__panel product-card__panel--left">
-      <p class="product-card__title mat-subheading-1">{{ details.title }}</p>
-      <small class="product-card__subtitle">{{ details.subtitle }}</small>
+    <div class="product-card__image-container">
+      <app-svg [color]="details.colorHex"></app-svg>
     </div>
-    <div class="product-card__panel product-card__panel--right">
-      <app-color-swatch [color]="details.colorHex"></app-color-swatch>
+    <div
+      class="product-card__content"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+    >
+      <div class="product-card__panel product-card__panel--left">
+        <p class="product-card__title mat-subheading-1">{{ details.title }}</p>
+        <small class="product-card__subtitle">{{ details.subtitle }}</small>
+      </div>
+      <div class="product-card__panel product-card__panel--right">
+        <app-color-swatch [color]="details.colorHex"></app-color-swatch>
+      </div>
     </div>
-  </div>
+  </a>
 </div>

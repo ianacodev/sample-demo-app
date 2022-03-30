@@ -9,6 +9,10 @@ export const productsRoutes: Routes = [
     path: '',
     component: fromContainers.ProductsComponent,
   },
+  {
+    path: ':productId',
+    component: fromContainers.ProductItemComponent,
+  },
 ];
 
 @NgModule({
