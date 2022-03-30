@@ -1,0 +1,72 @@
+<form class="product-form" [formGroup]="form" (submit)="onSubmit()">
+  <!-- title -->
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <!-- subtitle -->
+  <mat-form-field>
+    <mat-label>Subtitle</mat-label>
+    <input matInput formControlName="subtitle" />
+  </mat-form-field>
+  <!-- colors -->
+  <!-- status -->
+  <p>colors</p>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <select matNativeControl formControlName="status">
+      <option
+        *ngFor="let statusOption of statusOptions"
+        [value]="statusOption.value"
+      >
+        {{ statusOption.key }}
+      </option>
+    </select>
+  </mat-form-field>
+  <!-- description -->
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <!-- detailItems -->
+  <div class="product-form__detail-items-container" formArrayName="detailItems">
+    <div class="product-form__detail-items-header">
+      <div fxLayout="row inline" fxLayoutAlign="start center" fxLayoutGap="5px">
+        <span>Add Detail</span>
+        <button
+          type="button"
+          class="product-form__button-circle"
+          mat-mini-fab
+          color="primary"
+          (click)="addDetailItem()"
+        >
+          <span class="product-form__button-text">+</span>
+        </button>
+      </div>
+    </div>
+    <mat-form-field *ngFor="let detailItem of detailItems.controls; index as i">
+      <mat-label>Detail</mat-label>
+      <input matInput [formControlName]="i" />
+      <div matSuffix>
+        <button
+          type="button"
+          class="product-form__button-circle"
+          mat-mini-fab
+          color="warn"
+          (click)="removeDetailItem(i)"
+        >
+          <span class="product-form__button-text">-</span>
+        </button>
+      </div>
+    </mat-form-field>
+  </div>
+  <div>
+    <button
+      type="submit"
+      class="product-form__button-stroked"
+      mat-stroked-button
+    >
+      Save
+    </button>
+  </div>
+</form>

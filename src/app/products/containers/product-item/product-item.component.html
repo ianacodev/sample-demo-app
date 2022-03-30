@@ -9,20 +9,23 @@
   </div>
   <div
     class="product-item__content"
-    *ngIf="(product$ | async)?.details as productDetails"
     fxLayout="row"
     fxLayout.xs="column"
     fxLayoutGap="30px"
   >
     <div class="product-item__panel product-item__panel--left" fxFlex="1 0 0">
       <div class="product-item__image-container">
-        <app-svg [color]="productDetails.colorHex"></app-svg>
+        <app-svg [color]=""></app-svg>
       </div>
     </div>
     <div class="product-item__panel product-item__panel--right" fxFlex="1 0 0">
       <app-product-details
+        *ngIf="(product$ | async)?.details as productDetails; else productForm"
         [productDetails]="productDetails"
       ></app-product-details>
+      <ng-template #productForm>
+        <app-product-form></app-product-form>
+      </ng-template>
     </div>
   </div>
 </div>

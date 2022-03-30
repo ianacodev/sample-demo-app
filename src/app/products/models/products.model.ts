@@ -1,3 +1,9 @@
+export enum ProductStatusTypes {
+  Available = 'Available',
+  Unavailable = 'Unavailable',
+  LowSupply = 'Low Supply',
+}
+
 export interface ProductDetails {
   title: string;
   subtitle: string;
