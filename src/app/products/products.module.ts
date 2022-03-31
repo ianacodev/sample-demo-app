@@ -20,9 +20,15 @@ import { ProductsRoutingModule } from './products-routing.module';
 import * as fromContainers from './containers';
 // components
 import * as fromComponents from './components';
+// pipes
+import * as fromPipes from './pipes';
 
 @NgModule({
-  declarations: [...fromContainers.containers, ...fromComponents.components],
+  declarations: [
+    ...fromContainers.containers,
+    ...fromComponents.components,
+    ...fromPipes.pipes,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

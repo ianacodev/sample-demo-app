@@ -2,9 +2,16 @@
 
 .color-selector {
   margin-bottom: 1rem;
+  padding: 0.5rem 0;
 
   &__swatch {
     cursor: pointer;
+  }
+
+  &__error-container {
+    font-size: 75%;
+    margin-top: 0.67rem;
+    padding: 0 1rem;
   }
 
   .active {

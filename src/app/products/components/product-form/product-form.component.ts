@@ -2,8 +2,6 @@ import {
   Component,
   OnInit,
   OnDestroy,
-  OnChanges,
-  SimpleChanges,
   Input,
   Output,
   EventEmitter,
@@ -14,6 +12,9 @@ import {
   FormArray,
   Validators,
   FormControl,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
 } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -23,6 +24,7 @@ import {
   ProductStatusTypes,
   ProductColorTypes,
   Option,
+  ValidatorTypes,
 } from './../../models';
 
 @Component({
@@ -30,7 +32,7 @@ import {
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
 })
-export class ProductFormComponent implements OnChanges, OnInit, OnDestroy {
+export class ProductFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
   options: { [key: string]: Option<string>[] } = {};
   ngUnsubscribe$ = new Subject<void>();
@@ -40,6 +42,21 @@ export class ProductFormComponent implements OnChanges, OnInit, OnDestroy {
   get details() {
     return this.form.get('details') as FormArray;
   }
+
+  // custom validator
+  maxDetailsValidator = (max: number): ValidatorFn => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const valueLength = control.value.length;
+      return valueLength >= max
+        ? {
+            maxDetails: {
+              requiredLength: max,
+              actualLength: valueLength,
+            },
+          }
+        : null;
+    };
+  };
 
   constructor(private fb: FormBuilder) {
     this.setOptions();
@@ -63,14 +80,8 @@ export class ProductFormComponent implements OnChanges, OnInit, OnDestroy {
       status: ['', [Validators.required]],
       color: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.maxLength(300)]],
-      details: this.fb.array([]),
+      details: this.fb.array([], [this.maxDetailsValidator(4)]),
     });
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    const { product } = changes;
-    if (product) {
-    }
   }
 
   ngOnInit(): void {
@@ -100,15 +111,20 @@ export class ProductFormComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   createDetail(value: string = ''): FormControl {
-    return this.fb.control(value, [Validators.maxLength(75)]);
+    return this.fb.control(value, [
+      Validators.required,
+      Validators.maxLength(75),
+    ]);
   }
 
   /**
    * add detail
    */
   addDetail() {
-    const control = this.createDetail();
-    this.details.push(control);
+    if (!this.details.hasError(ValidatorTypes.MaxDetails)) {
+      const control = this.createDetail();
+      this.details.push(control);
+    }
   }
 
   /**
@@ -123,6 +139,9 @@ export class ProductFormComponent implements OnChanges, OnInit, OnDestroy {
    */
   onSubmit(): void {
     const { value, valid } = this.form;
-    this.submitEvent.emit(value);
+    this.form.markAllAsTouched();
+    if (valid) {
+      this.submitEvent.emit(value);
+    }
   }
 }
