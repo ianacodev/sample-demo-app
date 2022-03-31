@@ -1,0 +1,21 @@
+.product-form {
+  &__details {
+    margin-bottom: 3rem;
+
+    &-header {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__button {
+    &-text {
+      font-size: 1.8rem;
+      position: relative;
+      top: -2px;
+    }
+
+    &-stroked {
+      width: 100%;
+    }
+  }
+}

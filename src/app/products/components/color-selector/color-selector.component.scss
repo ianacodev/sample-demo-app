@@ -1,0 +1,14 @@
+@import "colorography";
+
+.color-selector {
+  margin-bottom: 1rem;
+
+  &__swatch {
+    cursor: pointer;
+  }
+
+  .active {
+    box-shadow: 0.063rem 0rem 0.313rem 0.5rem map-get($windy-palette, 500);
+    border-radius: 50%;
+  }
+}

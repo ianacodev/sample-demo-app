@@ -1,11 +1,7 @@
 <div class="product-card" *ngIf="product">
-  <a
-    class="product-card__link"
-    [routerLink]="['/products', product.id]"
-    *ngIf="product.details as details"
-  >
+  <a class="product-card__link" [routerLink]="['/products', product.id]">
     <div class="product-card__image-container">
-      <app-svg [color]="details.colorHex"></app-svg>
+      <app-svg [color]="product.color"></app-svg>
     </div>
     <div
       class="product-card__content"
@@ -13,11 +9,11 @@
       fxLayoutAlign="space-between center"
     >
       <div class="product-card__panel product-card__panel--left">
-        <p class="product-card__title mat-subheading-1">{{ details.title }}</p>
-        <small class="product-card__subtitle">{{ details.subtitle }}</small>
+        <p class="product-card__title mat-subheading-1">{{ product.title }}</p>
+        <small class="product-card__subtitle">{{ product.subtitle }}</small>
       </div>
       <div class="product-card__panel product-card__panel--right">
-        <app-color-swatch [color]="details.colorHex"></app-color-swatch>
+        <app-color-swatch [color]="product.color"></app-color-swatch>
       </div>
     </div>
   </a>

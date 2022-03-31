@@ -1,3 +1,4 @@
+import { ProductDetailsComponent } from './../../components/product-details/product-details.component';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // ngrx
@@ -12,6 +13,7 @@ import { Product } from '../../models';
   styleUrls: ['./product-item.component.scss'],
 })
 export class ProductItemComponent implements OnInit {
+  color: string = '';
   product$: Observable<Product> | undefined;
 
   constructor(private store: Store<fromStore.ProductsState>) {}
@@ -27,5 +29,12 @@ export class ProductItemComponent implements OnInit {
    */
   onBack(): void {
     this.store.dispatch(fromRootStore.go({ path: ['products'] }));
+  }
+
+  /**
+   * on submit
+   */
+  onSubmit(product: Product): void {
+    this.store.dispatch(fromStore.addProduct({ product }));
   }
 }

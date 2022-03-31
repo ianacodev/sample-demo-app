@@ -1,0 +1,76 @@
+<form class="product-form" [formGroup]="form" (submit)="onSubmit()">
+  <!-- title -->
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <!-- subtitle -->
+  <mat-form-field>
+    <mat-label>Subtitle</mat-label>
+    <input matInput formControlName="subtitle" />
+  </mat-form-field>
+  <!-- colors -->
+  <app-color-selector
+    [label]="'Color'"
+    [colors]="options['colors']"
+    formControlName="color"
+  ></app-color-selector>
+  <!-- status -->
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <select matNativeControl formControlName="status">
+      <option
+        *ngFor="let statusOption of options['statuses']"
+        [value]="statusOption.value"
+      >
+        {{ statusOption.key }}
+      </option>
+    </select>
+  </mat-form-field>
+  <!-- description -->
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <!-- detail -->
+  <div class="product-form__details" formArrayName="details">
+    <div class="product-form__details-header">
+      <div fxLayout="row inline" fxLayoutAlign="start center" fxLayoutGap="5px">
+        <span>Add Detail</span>
+        <button
+          type="button"
+          class="product-form__button-circle"
+          mat-mini-fab
+          color="primary"
+          (click)="addDetail()"
+        >
+          <span class="product-form__button-text">+</span>
+        </button>
+      </div>
+    </div>
+    <mat-form-field *ngFor="let detail of details.controls; index as i">
+      <mat-label>Detail</mat-label>
+      <input matInput [formControlName]="i" />
+      <div matSuffix>
+        <button
+          type="button"
+          class="product-form__button-circle"
+          mat-mini-fab
+          color="warn"
+          (click)="removeDetail(i)"
+        >
+          <span class="product-form__button-text">-</span>
+        </button>
+      </div>
+    </mat-form-field>
+  </div>
+  <div>
+    <button
+      type="submit"
+      class="product-form__button-stroked"
+      mat-stroked-button
+    >
+      Save
+    </button>
+  </div>
+</form>

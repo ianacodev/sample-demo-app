@@ -1,0 +1,15 @@
+<div
+  class="color-selector"
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  fxLayoutGap="15px"
+>
+  <div>{{ label }}</div>
+  <app-color-swatch
+    class="color-selector__swatch"
+    [class.active]="color.value === colorValue"
+    [color]="color.value"
+    *ngFor="let color of colors"
+    (click)="onSelectColor(color.value)"
+  ></app-color-swatch>
+</div>

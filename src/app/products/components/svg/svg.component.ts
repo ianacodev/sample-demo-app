@@ -6,5 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./svg.component.scss'],
 })
 export class SvgComponent {
-  @Input() color: string = '#DDDDDD';
+  colorFill: string = '#f5f5f5';
+  @Input() set color(value: string | undefined) {
+    if (value) {
+      this.colorFill = value;
+    }
+  }
 }

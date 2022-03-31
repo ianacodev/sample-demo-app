@@ -12,6 +12,10 @@ export const productsRoutes: Routes = [
     component: fromContainers.ProductsComponent,
   },
   {
+    path: 'add',
+    component: fromContainers.ProductItemComponent,
+  },
+  {
     path: ':productId',
     component: fromContainers.ProductItemComponent,
     canActivate: [fromGuards.ProductsGuard],
