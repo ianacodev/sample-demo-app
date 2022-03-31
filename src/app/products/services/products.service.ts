@@ -24,6 +24,16 @@ export class ProductsService {
   }
 
   /**
+   * add product
+   * @returns observable of product
+   */
+  addProduct(product: Product): Observable<Product | HttpErrorResponse> {
+    return this.http
+      .post<Product>(this.BASE_URL, product)
+      .pipe(catchError(this.handleError));
+  }
+
+  /**
    * handle error
    * @param error
    * @returns observable of error

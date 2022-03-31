@@ -4,18 +4,23 @@ export enum ProductStatusTypes {
   LowSupply = 'Low Supply',
 }
 
-export interface ProductDetails {
-  title: string;
-  subtitle: string;
-  status: string;
-  colorHex: string;
-  description: string;
-  detailItems: string[];
+export enum ProductColorTypes {
+  C1 = '#0C97A1',
+  C2 = '#3F4040',
+  C3 = '#607d8b',
+}
+
+export interface Option<T> {
+  key: string;
+  value: T;
 }
 
 export interface Product {
-  id: string;
-  code: string;
-  name: string;
-  details: ProductDetails;
+  id?: string;
+  title: string;
+  subtitle: string;
+  status: string;
+  color: string;
+  description: string;
+  details: string[];
 }

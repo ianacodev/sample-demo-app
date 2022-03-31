@@ -17,9 +17,28 @@ export class ProductsEffects {
       mergeMap(() =>
         this.productsService.getProducts().pipe(
           map((products) =>
-            fromActions.loadProductsSuccess({ products: products as Product[] })
+            fromActions.loadProductsSuccess({
+              products: products as Required<Product>[],
+            })
           ),
           catchError((error) => of(fromActions.loadProductsFail({ error })))
+        )
+      )
+    )
+  );
+
+  addProduct$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromActions.addProduct),
+      mergeMap(({ product }) =>
+        this.productsService.addProduct(product).pipe(
+          map(
+            (product) =>
+              fromActions.addProductSuccess({
+                product: product as Required<Product>,
+              }),
+            catchError((error) => of(fromActions.addProductsFail({ error })))
+          )
         )
       )
     )

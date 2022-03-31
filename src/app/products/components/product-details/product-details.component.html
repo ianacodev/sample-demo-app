@@ -1,33 +1,33 @@
-<div class="product-details" *ngIf="productDetails">
+<div class="product-details" *ngIf="product">
   <div class="product-details__header">
-    <div class="product-details__title">{{ productDetails.title }}</div>
-    <div class="product-details__subtitle">{{ productDetails.subtitle }}</div>
+    <div class="product-details__title">{{ product.title }}</div>
+    <div class="product-details__subtitle">{{ product.subtitle }}</div>
     <div class="product-details__group">
       <div class="product-details__label">Color</div>
       <div class="product-details__value">
         <app-color-swatch
           class="product-details__color"
-          [color]="productDetails.colorHex"
+          [color]="product.color"
         ></app-color-swatch>
       </div>
     </div>
     <div class="product-details__group">
       <div class="product-details__label">Status</div>
       <div class="product-details__value product-details__status">
-        {{ productDetails.status }}
+        {{ product.status }}
       </div>
     </div>
   </div>
   <div class="product-details__description">
     <div class="mat-title">Description</div>
     <p class="product-details__text">
-      <span>{{ productDetails.description }}</span>
+      <span>{{ product.description }}</span>
     </p>
   </div>
   <div class="product-details__details">
     <div class="mat-title">Details</div>
     <ul class="product-detail-items">
-      <li *ngFor="let detailItem of productDetails.detailItems">
+      <li *ngFor="let detailItem of product.details">
         <span class="product-details__text">{{ detailItem }}</span>
       </li>
     </ul>

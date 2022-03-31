@@ -8,13 +8,13 @@ import { Product } from '../../models';
 
 export const productsStateKey = 'products';
 
-export interface ProductsState extends EntityState<Product> {
+export interface ProductsState extends EntityState<Required<Product>> {
   loading: boolean;
   loaded: boolean;
   error: any;
 }
 
-export function selectProductId(product: Product) {
+export function selectProductId(product: Required<Product>) {
   return product.id;
 }
 
@@ -30,7 +30,7 @@ export const initialState = productsAdapter.getInitialState({
 
 export const productsReducer = createReducer(
   initialState,
-  on(fromActions.loadProducts, (state, action) => ({
+  on(fromActions.loadProducts, (state) => ({
     ...state,
     loading: true,
   })),
@@ -44,6 +44,9 @@ export const productsReducer = createReducer(
     const { error: errorRes } = action;
     return { ...state, loading: false, loaded: false, error: errorRes.error };
   }),
+  on(fromActions.addProductSuccess, (state, action) => ({
+    ...productsAdapter.addOne(action.product, state),
+  })),
   on(fromActions.resetProducts, () => initialState)
 );
 
