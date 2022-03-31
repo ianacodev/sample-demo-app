@@ -1,7 +1,14 @@
+export enum ValidatorTypes {
+  Required = 'required',
+  Minlength = 'minlength',
+  Maxlength = 'maxlength',
+  MaxDetails = 'maxDetails',
+}
+
 export enum ProductStatusTypes {
-  Available = 'Available',
-  Unavailable = 'Unavailable',
-  LowSupply = 'Low Supply',
+  Available = 'available',
+  Unavailable = 'unavailable',
+  'Low Supply' = 'lowSupply',
 }
 
 export enum ProductColorTypes {

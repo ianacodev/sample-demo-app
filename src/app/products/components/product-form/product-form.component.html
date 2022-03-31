@@ -3,18 +3,31 @@
   <mat-form-field>
     <mat-label>Title</mat-label>
     <input matInput formControlName="title" />
+    <mat-error *ngIf="form.get('title')?.errors as errors">
+      {{ errors | formError }}
+    </mat-error>
   </mat-form-field>
   <!-- subtitle -->
   <mat-form-field>
     <mat-label>Subtitle</mat-label>
     <input matInput formControlName="subtitle" />
+    <mat-error *ngIf="form.get('subtitle')?.errors as errors">
+      {{ errors | formError }}
+    </mat-error>
   </mat-form-field>
   <!-- colors -->
   <app-color-selector
     [label]="'Color'"
     [colors]="options['colors']"
     formControlName="color"
-  ></app-color-selector>
+  >
+    <mat-error
+      error
+      *ngIf="form.get('color')?.touched && form.get('color')?.errors as errors"
+    >
+      {{ errors | formError }}
+    </mat-error>
+  </app-color-selector>
   <!-- status -->
   <mat-form-field>
     <mat-label>Status</mat-label>
@@ -26,11 +39,17 @@
         {{ statusOption.key }}
       </option>
     </select>
+    <mat-error *ngIf="form.get('status')?.errors as errors">
+      {{ errors | formError }}
+    </mat-error>
   </mat-form-field>
   <!-- description -->
   <mat-form-field>
     <mat-label>Description</mat-label>
     <textarea matInput formControlName="description"></textarea>
+    <mat-error *ngIf="form.get('description')?.errors as errors">
+      {{ errors | formError }}
+    </mat-error>
   </mat-form-field>
   <!-- detail -->
   <div class="product-form__details" formArrayName="details">
@@ -62,7 +81,13 @@
           <span class="product-form__button-text">-</span>
         </button>
       </div>
+      <mat-error *ngIf="details.at(i).errors as errors">
+        {{ errors | formError }}
+      </mat-error>
     </mat-form-field>
+    <mat-error *ngIf="details.errors as errors">
+      {{ errors | formError }}
+    </mat-error>
   </div>
   <div>
     <button
