@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// components
+import * as fromContainers from './containers';
 
 // routes
 export const mainRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'products',
-    pathMatch: 'full',
-  },
-  {
-    path: 'products',
-    loadChildren: () =>
-      import('../products/products.module').then((m) => m.ProductsModule),
+    component: fromContainers.MainComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'products',
+        pathMatch: 'full',
+      },
+      {
+        path: 'products',
+        loadChildren: () =>
+          import('../products/products.module').then((m) => m.ProductsModule),
+      },
+    ],
   },
 ];
 

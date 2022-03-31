@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { mergeMap, map, catchError } from 'rxjs/operators';
+import { mergeMap, map, catchError, filter } from 'rxjs/operators';
 // ngrx
-import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { Store, select } from '@ngrx/store';
+import { createEffect, Actions, ofType, concatLatestFrom } from '@ngrx/effects';
+import { ProductsState } from '../reducers';
 import * as fromActions from '../actions';
+import * as fromSelectors from '../selectors';
 // services
 import { ProductsService } from '../../services/products.service';
 // models
@@ -14,6 +17,10 @@ export class ProductsEffects {
   loadProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.loadProducts),
+      concatLatestFrom(() =>
+        this.store.pipe(select(fromSelectors.selectProductsLoaded))
+      ),
+      filter(([, loaded]) => !loaded),
       mergeMap(() =>
         this.productsService.getProducts().pipe(
           map((products) =>
@@ -46,6 +53,7 @@ export class ProductsEffects {
 
   constructor(
     private productsService: ProductsService,
-    private actions$: Actions
+    private actions$: Actions,
+    private store: Store<ProductsState>
   ) {}
 }

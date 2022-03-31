@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 // models
 import { Option } from '../../models';

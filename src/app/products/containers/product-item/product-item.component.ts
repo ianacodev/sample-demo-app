@@ -28,7 +28,7 @@ export class ProductItemComponent implements OnInit {
    * on back
    */
   onBack(): void {
-    this.store.dispatch(fromRootStore.go({ path: ['products'] }));
+    this.store.dispatch(fromRootStore.go({ path: ['main', 'products'] }));
   }
 
   /**

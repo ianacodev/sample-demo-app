@@ -31,7 +31,9 @@ export class ProductsGuard implements CanActivate {
       map((productIds) => {
         const { productId } = route.params;
         const productExists = productIds.includes(productId);
-        return productExists ? true : this.router.createUrlTree(['products']);
+        return productExists
+          ? true
+          : this.router.createUrlTree(['main', 'products']);
       })
     );
   }
