@@ -5,4 +5,4 @@ import { ProductItemComponent } from './product-item/product-item.component';
 export * from './products/products.component';
 export * from './product-item/product-item.component';
 // exports group
-export const containers: any[] = [ProductsComponent, ProductItemComponent];
+export const containers = [ProductsComponent, ProductItemComponent];

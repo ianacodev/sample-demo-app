@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 // ngrx
 import { Store, select } from '@ngrx/store';
 import * as fromStore from '../../store';
@@ -17,7 +18,10 @@ export class ProductsComponent implements OnInit {
   constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit(): void {
-    this.products$ = this.store.pipe(select(fromStore.selectProducts));
+    this.products$ = this.store.pipe(
+      select(fromStore.selectProducts),
+      filter((products) => !!products.length)
+    );
     this.store.dispatch(fromStore.loadProducts());
   }
 
@@ -25,6 +29,8 @@ export class ProductsComponent implements OnInit {
    * on add product
    */
   onAddProduct(): void {
-    this.store.dispatch(fromRootStore.go({ path: ['products', 'add'] }));
+    this.store.dispatch(
+      fromRootStore.go({ path: ['main', 'products', 'add'] })
+    );
   }
 }

@@ -9,7 +9,7 @@ export enum RouterActionTypes {
 
 export const go = createAction(
   RouterActionTypes.Go,
-  props<{ path: any[]; query?: object; extras?: NavigationExtras }>()
+  props<{ path: string[]; query?: object; extras?: NavigationExtras }>()
 );
 
 export const back = createAction(RouterActionTypes.Back);

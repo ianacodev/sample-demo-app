@@ -22,7 +22,7 @@
     formControlName="color"
   >
     <mat-error
-      error
+      message
       *ngIf="form.get('color')?.touched && form.get('color')?.errors as errors"
     >
       {{ errors | formError }}

@@ -1,5 +1,8 @@
 <div class="product-card" *ngIf="product">
-  <a class="product-card__link" [routerLink]="['/products', product.id]">
+  <a
+    class="product-card__link"
+    [routerLink]="['/main', 'products', product.id]"
+  >
     <div class="product-card__image-container">
       <app-svg [color]="product.color"></app-svg>
     </div>

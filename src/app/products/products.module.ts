@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { featureKey, reducers, effects } from './store';
 // features
 import { ProductsRoutingModule } from './products-routing.module';
+import { SharedModule } from '../shared/shared.module';
 // containers
 import * as fromContainers from './containers';
 // components
@@ -41,6 +42,7 @@ import * as fromPipes from './pipes';
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
+    SharedModule,
   ],
   providers: [
     {
