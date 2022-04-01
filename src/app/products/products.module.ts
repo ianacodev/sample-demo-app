@@ -9,6 +9,7 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 // ngrx
 import { StoreModule } from '@ngrx/store';
@@ -41,6 +42,7 @@ import * as fromPipes from './pipes';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     FlexLayoutModule,
     SharedModule,
   ],

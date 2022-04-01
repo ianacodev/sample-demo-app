@@ -31,14 +31,14 @@
   <!-- status -->
   <mat-form-field>
     <mat-label>Status</mat-label>
-    <select matNativeControl formControlName="status">
-      <option
+    <mat-select formControlName="status">
+      <mat-option
         *ngFor="let statusOption of options['statuses']"
         [value]="statusOption.value"
       >
         {{ statusOption.key }}
-      </option>
-    </select>
+      </mat-option>
+    </mat-select>
     <mat-error *ngIf="form.get('status')?.errors as errors">
       {{ errors | formError }}
     </mat-error>

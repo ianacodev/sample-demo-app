@@ -33,6 +33,7 @@ import {
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit, OnDestroy {
+  readonly MAX_DETAILS = 4;
   form: FormGroup;
   options: { [key: string]: Option<string>[] } = {};
   ngUnsubscribe$ = new Subject<void>();
@@ -47,7 +48,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   maxDetailsValidator = (max: number): ValidatorFn => {
     return (control: AbstractControl): ValidationErrors | null => {
       const valueLength = control.value.length;
-      return valueLength >= max
+      return valueLength > max
         ? {
             maxDetails: {
               requiredLength: max,
@@ -80,7 +81,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       status: ['', [Validators.required]],
       color: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.maxLength(300)]],
-      details: this.fb.array([], [this.maxDetailsValidator(4)]),
+      details: this.fb.array([], [this.maxDetailsValidator(this.MAX_DETAILS)]),
     });
   }
 
@@ -121,7 +122,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
    * add detail
    */
   addDetail() {
-    if (!this.details.hasError(ValidatorTypes.MaxDetails)) {
+    if (this.details.value.length < this.MAX_DETAILS) {
       const control = this.createDetail();
       this.details.push(control);
     }

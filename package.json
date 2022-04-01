@@ -2,6 +2,7 @@
   "name": "sample-demo-app",
   "version": "0.0.0",
   "scripts": {
+    "build:git": "ng build --base-href=/sample-demo-app/ --output-path=docs",
     "server:mock": "node ./mock-server/server.js",
     "ng": "ng",
     "start:dev": "concurrently \"npm run server:mock\" \"npm start\"",
