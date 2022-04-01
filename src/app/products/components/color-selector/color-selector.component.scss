@@ -1,4 +1,4 @@
-@import "colorography";
+@use "colorography" as color;
 
 .color-selector {
   margin-bottom: 1rem;
@@ -15,7 +15,7 @@
   }
 
   .active {
-    box-shadow: 0.063rem 0rem 0.313rem 0.5rem map-get($windy-palette, 500);
+    box-shadow: 0.063rem 0rem 0.313rem 0.5rem map-get(color.$windy-palette, 500);
     border-radius: 50%;
   }
 }

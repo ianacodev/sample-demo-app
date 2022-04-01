@@ -4,10 +4,10 @@
 // Plus imports for other components in your app.
 
 // CUSTOM THEMING
-@import "colorography";
-@import "typography";
-@import "material-overrides";
-@import "custom";
+@use "colorography" as color;
+@use "typography" as typog;
+@use "material-overrides" as mat-ovr;
+@use "custom";
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -18,8 +18,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$sample-demo-app-primary: mat.define-palette($leaf-palette);
-$sample-demo-app-accent: mat.define-palette($bark-palette);
+$sample-demo-app-primary: mat.define-palette(color.$leaf-palette);
+$sample-demo-app-accent: mat.define-palette(color.$bark-palette);
 
 // The warn palette is optional (defaults to red).
 $sample-demo-app-warn: mat.define-palette(mat.$red-palette);
@@ -29,8 +29,8 @@ $default-font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
 
 $custom-typography-config: mat.define-typography-config(
   $font-family: $default-font-family,
-  $subheading-2: $open-sans-regular-level,
-  $subheading-1: $open-sans-bold-level,
+  $subheading-2: typog.$open-sans-regular-level,
+  $subheading-1: typog.$open-sans-bold-level,
 );
 
 @include mat.core($custom-typography-config);

@@ -1,4 +1,4 @@
-@import "colorography";
+@use "colorography" as color;
 
 .product-details {
   &__header {
@@ -24,13 +24,13 @@
   }
 
   &__label {
-    color: map-get($bark-palette, 400);
+    color: map-get(color.$bark-palette, 400);
     font-size: 1rem;
   }
 
   &__status {
-    color: map-get($bark-palette, 500);
-    border: 0.063rem solid map-get($bark-palette, 100);
+    color: map-get(color.$bark-palette, 500);
+    border: 0.063rem solid map-get(color.$bark-palette, 100);
     border-radius: 0.25rem;
     padding: 0.25rem 0.5rem;
     text-transform: uppercase;
