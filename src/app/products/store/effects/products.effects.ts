@@ -7,6 +7,7 @@ import { createEffect, Actions, ofType, concatLatestFrom } from '@ngrx/effects';
 import { ProductsState } from '../reducers';
 import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors';
+import * as fromRootStore from '../../../store';
 // services
 import { ProductsService } from '../../services/products.service';
 // models
@@ -39,14 +40,22 @@ export class ProductsEffects {
       ofType(fromActions.addProduct),
       mergeMap(({ product }) =>
         this.productsService.addProduct(product).pipe(
-          map(
-            (product) =>
-              fromActions.addProductSuccess({
-                product: product as Required<Product>,
-              }),
-            catchError((error) => of(fromActions.addProductsFail({ error })))
-          )
+          map((product) =>
+            fromActions.addProductSuccess({
+              product: product as Required<Product>,
+            })
+          ),
+          catchError((error) => of(fromActions.addProductsFail({ error })))
         )
+      )
+    )
+  );
+
+  addProductSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromActions.addProductSuccess),
+      map(({ product }) =>
+        fromRootStore.go({ path: ['main', 'products', product.id] })
       )
     )
   );
