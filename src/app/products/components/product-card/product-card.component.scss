@@ -1,4 +1,4 @@
-@import "colorography";
+@use "colorography" as color;
 
 .product-card {
   &__link {
@@ -8,7 +8,7 @@
   }
 
   &__image-container {
-    background: map-get($windy-palette, 500);
+    background: map-get(color.$windy-palette, 500);
     min-width: 11.5rem;
     min-height: 15rem;
   }

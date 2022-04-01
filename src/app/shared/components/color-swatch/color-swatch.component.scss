@@ -1,8 +1,8 @@
-@import "custom";
+@use "custom";
 
 .color-swatch {
   border-radius: 50%;
-  box-shadow: $default-box-shadow;
+  box-shadow: custom.$default-box-shadow;
   height: 2rem;
   width: 2rem;
 }

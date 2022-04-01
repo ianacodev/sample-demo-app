@@ -1,4 +1,4 @@
-@import "colorography";
+@use "colorography" as color;
 
 .product-item {
   &__header {
@@ -10,7 +10,7 @@
   }
 
   &__image-container {
-    background: map-get($windy-palette, 500);
+    background: map-get(color.$windy-palette, 500);
     display: inline-block;
     min-width: 11.5rem;
     min-height: 15rem;

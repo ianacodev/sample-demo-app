@@ -1,7 +1,7 @@
-@import "colorography";
+@use "colorography" as palettes;
 
 .footer {
-  border-top: 0.063rem solid map-get($windy-palette, 500);
+  border-top: 0.063rem solid map-get(palettes.$windy-palette, 500);
   min-height: 5rem;
   padding: 1rem;
 }

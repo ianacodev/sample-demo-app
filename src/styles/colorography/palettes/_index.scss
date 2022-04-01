@@ -1,2 +1,5 @@
-@import "bark-palette", "breeze-palette", "leaf-palette", "windy-palette",
-  "cloud-palette";
+@forward "bark-palette";
+@forward "breeze-palette";
+@forward "leaf-palette";
+@forward "windy-palette";
+@forward "cloud-palette";

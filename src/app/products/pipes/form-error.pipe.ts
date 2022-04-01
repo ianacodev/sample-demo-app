@@ -13,7 +13,8 @@ export class FormErrorPipe implements PipeTransform {
       `Min length ${error.requiredLength}`,
     [ValidatorTypes.Maxlength]: (error: any) =>
       `Max length ${error.requiredLength}`,
-    [ValidatorTypes.MaxDetails]: (error: any) => `Max details reached`,
+    [ValidatorTypes.MaxDetails]: (error: any) =>
+      `Max ${error.requiredLength} details`,
   };
 
   transform(errors: ValidationErrors, ...args: unknown[]): unknown {
