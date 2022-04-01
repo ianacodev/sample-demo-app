@@ -2,7 +2,7 @@ module.exports = [
   {
     id: "65a92309-da2d-4c18-92bf-abc1590d9741",
     title: "Product A",
-    subtitle: "$45.00",
+    subtitle: "Product sample A",
     status: "Available",
     color: "#0C97A1",
     description: `
@@ -19,7 +19,7 @@ module.exports = [
   {
     id: "ea3acac8-27ad-4c3e-a731-24498f24290e",
     title: "Product B",
-    subtitle: "$45.00",
+    subtitle: "Product sample B",
     status: "Unavailable",
     color: "#3F4040",
     description: `
@@ -36,7 +36,7 @@ module.exports = [
   {
     id: "b4f024b4-96f9-4405-8588-c0fd3013068e",
     title: "Product C",
-    subtitle: "$45.00",
+    subtitle: "Product sample C",
     status: "Available",
     color: "#607d8b",
     description: `
