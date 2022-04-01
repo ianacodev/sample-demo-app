@@ -6,7 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Product } from '../models';
 /*
  **For demo deployment, disable http requests to prevent data persist
- and supply static data
+ and supply static data.
  */
 // @ts-ignore
 import * as productsDb from '../../../../mock-server/db/products';
