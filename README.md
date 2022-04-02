@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
+## Overview
+
+Design Link [Adobe XD]: https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/?fullscreen
+
+Demo Site: https://ianacodev.github.io/sample-demo-app
+
+<img src="./src/assets/website-images/website-promo.png">
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
