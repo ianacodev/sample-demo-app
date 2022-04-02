@@ -4,9 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Overview
 
-Design Link [Adobe XD]: https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/?fullscreen
+Design Link [Adobe XD]:
+<a href="https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/?fullscreen" target="_blank">https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/?fullscreen</a>
 
-Demo Site: https://ianacodev.github.io/sample-demo-app
+Demo Site: <a href="https://ianacodev.github.io/sample-demo-app" target="_blank">https://ianacodev.github.io/sample-demo-app</a>
 
 <img src="./src/assets/website-images/website-promo.png">
 
