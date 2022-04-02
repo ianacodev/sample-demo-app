@@ -1,4 +1,3 @@
-import { ProductDetailsComponent } from './../../components/product-details/product-details.component';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // ngrx
@@ -7,10 +6,14 @@ import * as fromStore from '../../store';
 import * as fromRootStore from '../../../store';
 // models
 import { Product } from '../../models';
+// animations
+// animations
+import { slideUpAnimation } from 'src/app/shared/animations';
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss'],
+  animations: [slideUpAnimation],
 })
 export class ProductItemComponent implements OnInit {
   color: string = '';
