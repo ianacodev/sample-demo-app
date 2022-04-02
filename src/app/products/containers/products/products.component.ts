@@ -7,7 +7,6 @@ import * as fromStore from '../../store';
 import * as fromRootStore from '../../../store';
 // models
 import { Product } from '../../models';
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
