@@ -26,8 +26,11 @@
   </div>
   <div class="product-details__details">
     <div class="mat-title">Details</div>
-    <ul class="product-detail-items">
-      <li *ngFor="let detailItem of product.details">
+    <ul class="product-details__details-items">
+      <li
+        class="product-details__details-item"
+        *ngFor="let detailItem of product.details"
+      >
         <span class="product-details__text">{{ detailItem }}</span>
       </li>
     </ul>

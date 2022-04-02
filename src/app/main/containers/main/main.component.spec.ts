@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { MainComponent } from './main.component';
 
 describe('MainComponent', () => {
@@ -9,6 +9,7 @@ describe('MainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MainComponent],
+      imports: [RouterTestingModule],
     }).compileComponents();
   });
 
@@ -20,5 +21,13 @@ describe('MainComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('[dom tests]', () => {
+    it('should render copyright', () => {
+      const compiled = fixture.nativeElement as HTMLElement;
+      const routerOutletEl = compiled.querySelector('router-outlet');
+      expect(routerOutletEl).toBeTruthy();
+    });
   });
 });
