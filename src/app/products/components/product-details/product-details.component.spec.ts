@@ -13,7 +13,7 @@ describe('ProductDetailsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         ProductDetailsComponent,
-        fromSharedTest.ColorSwatchComponentStub,
+        fromSharedTest.ColorSwatchStubComponent,
       ],
     }).compileComponents();
   });

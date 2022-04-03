@@ -15,8 +15,8 @@ describe('ProductCardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         ProductCardComponent,
-        fromSharedTest.ColorSwatchComponentStub,
-        fromSharedTest.SvgComponentStub,
+        fromSharedTest.ColorSwatchStubComponent,
+        fromSharedTest.SvgStubComponent,
       ],
       imports: [RouterTestingModule],
     }).compileComponents();
