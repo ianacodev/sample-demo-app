@@ -45,7 +45,7 @@ export class ProductsEffects {
               product: product as Required<Product>,
             })
           ),
-          catchError((error) => of(fromActions.addProductsFail({ error })))
+          catchError((error) => of(fromActions.addProductFail({ error })))
         )
       )
     )

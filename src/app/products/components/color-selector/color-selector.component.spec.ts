@@ -55,9 +55,7 @@ describe('ColorSelectorComponent', () => {
     it('should set control value', () => {
       const color = testColors[0].value;
       testHostComponent.color.patchValue(color);
-      expect(testHostComponent.colorSelectorComponent?.colorValue).toEqual(
-        color
-      );
+      expect(testHostComponent.colorSelectorComponent?.colorValue).toBe(color);
     });
 
     it('should trigger change and touched on color select', () => {
@@ -69,7 +67,7 @@ describe('ColorSelectorComponent', () => {
       component?.onSelectColor(color);
       expect(component.onChange).toHaveBeenCalled();
       expect(component.onTouched).toHaveBeenCalled();
-      expect(component?.colorValue).toEqual(color);
+      expect(component?.colorValue).toBe(color);
     });
   });
 

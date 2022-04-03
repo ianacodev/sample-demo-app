@@ -26,7 +26,7 @@ describe('SvgComponent', () => {
 
   describe('[class tests]', () => {
     it('should set fill color', () => {
-      expect(component.colorFill).toEqual(testColor);
+      expect(component.colorFill).toBe(testColor);
     });
   });
 
@@ -34,7 +34,7 @@ describe('SvgComponent', () => {
     it('should display svg with fill color', () => {
       const svgDe = fixture.debugElement.query(By.css('svg'));
       const svgEl = svgDe.nativeElement as SVGElement;
-      expect(svgEl.getAttribute('fill')).toEqual(component.colorFill);
+      expect(svgEl.getAttribute('fill')).toBe(component.colorFill);
     });
   });
 });

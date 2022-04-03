@@ -26,7 +26,7 @@ describe('FooterComponent', () => {
 
   describe('[class tests]', () => {
     it(`should have as copyright '${copyrightContent}'`, () => {
-      expect(component.copyright).toEqual(copyrightContent);
+      expect(component.copyright).toBe(copyrightContent);
     });
   });
 

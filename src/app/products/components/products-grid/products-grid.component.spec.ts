@@ -37,7 +37,7 @@ describe('ProductsGridComponent', () => {
         By.css('app-product-card')
       );
       const expected = (component.products as Product[]).length;
-      expect(productCardDes.length).toEqual(expected);
+      expect(productCardDes.length).toBe(expected);
     });
   });
 });

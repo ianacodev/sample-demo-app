@@ -5,8 +5,8 @@ import { catchError, tap } from 'rxjs/operators';
 // ngrx
 import { Product } from '../models';
 /*
- **For demo deployment, disable http requests to prevent data persist
- and supply static data.
+ **[Note] For demo deployment, disable http requests to prevent data persist
+ and substitute static data.
  */
 // @ts-ignore
 import * as productsDb from '../../../../mock-server/db/products';
@@ -29,7 +29,7 @@ export class ProductsService {
       .get<Product[]>(this.BASE_URL)
       .pipe(catchError(this.handleError));
     */
-    // **see notes above, disable http requests for demo purposes
+    //[Note]: disable http requests for demo purposes, see notes above**
     return of(productsDb);
   }
 
@@ -39,11 +39,11 @@ export class ProductsService {
    */
   addProduct(product: Product): Observable<Product | HttpErrorResponse> {
     /*
-    return this.http.post<Product>(this.BASE_URL, product).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .post<Product>(this.BASE_URL, product)
+      .pipe(catchError(this.handleError));
     */
-    // **see notes above, disable http requests for demo purposes
+    //[Note]: disable http requests for demo purposes, see notes above**
     const id = Math.random().toString(36).slice(2);
     const mockPersistedProduct = { ...product, id };
     return of(mockPersistedProduct);
@@ -54,7 +54,7 @@ export class ProductsService {
    * @param error
    * @returns observable of error
    */
-  handleError(error: HttpErrorResponse): Observable<HttpErrorResponse> {
+  private handleError(error: HttpErrorResponse): Observable<HttpErrorResponse> {
     return throwError(() => error);
   }
 }

@@ -30,7 +30,7 @@ describe('LoadingComponent', () => {
       const spinnerEl = spinnerDe.nativeElement as HTMLElement;
       expect(
         parseInt(spinnerEl.getAttribute('ng-reflect-diameter') as string, 10)
-      ).toEqual(component.diameter);
+      ).toBe(component.diameter);
     });
   });
 });

@@ -38,7 +38,7 @@ export const addProductSuccess = createAction(
   props<{ product: Required<Product> }>()
 );
 
-export const addProductsFail = createAction(
+export const addProductFail = createAction(
   ProductsActionTypes.AddProductFail,
   props<{ error: HttpErrorResponse }>()
 );

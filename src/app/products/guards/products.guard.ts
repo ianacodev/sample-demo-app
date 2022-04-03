@@ -7,7 +7,7 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 // ngrx
 import { Store, select } from '@ngrx/store';
 import * as fromStore from '../store';
@@ -19,8 +19,7 @@ export class ProductsGuard implements CanActivate {
   constructor(private router: Router, private store: Store) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
@@ -34,7 +33,8 @@ export class ProductsGuard implements CanActivate {
         return productExists
           ? true
           : this.router.createUrlTree(['main', 'products']);
-      })
+      }),
+      take(1)
     );
   }
 }
