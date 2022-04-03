@@ -32,7 +32,13 @@ import {
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit, OnDestroy {
-  readonly MAX_DETAILS = 4;
+  readonly FIELD_MAX_LIMITS = {
+    details: 4,
+    title: 32,
+    subtitle: 32,
+    description: 300,
+    detail: 75,
+  };
   form: FormGroup;
   options: { [key: string]: Option<string>[] } = {};
   ngUnsubscribe$ = new Subject<void>();
@@ -66,7 +72,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(32),
+          Validators.maxLength(this.FIELD_MAX_LIMITS.title),
         ],
       ],
       subtitle: [
@@ -74,13 +80,16 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(32),
+          Validators.maxLength(this.FIELD_MAX_LIMITS.subtitle),
         ],
       ],
       status: ['', [Validators.required]],
       color: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.maxLength(300)]],
-      details: this.fb.array([], [this.maxDetailsValidator(this.MAX_DETAILS)]),
+      details: this.fb.array(
+        [],
+        [this.maxDetailsValidator(this.FIELD_MAX_LIMITS.details)]
+      ),
     });
   }
 
@@ -113,7 +122,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   createDetail(value: string = ''): FormControl {
     return this.fb.control(value, [
       Validators.required,
-      Validators.maxLength(75),
+      Validators.maxLength(this.FIELD_MAX_LIMITS.detail),
     ]);
   }
 
@@ -121,7 +130,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
    * add detail
    */
   addDetail() {
-    if (this.details.value.length < this.MAX_DETAILS) {
+    if (this.details.value.length < this.FIELD_MAX_LIMITS.details) {
       const control = this.createDetail();
       this.details.push(control);
     }

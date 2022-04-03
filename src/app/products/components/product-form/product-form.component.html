@@ -2,7 +2,11 @@
   <!-- title -->
   <mat-form-field>
     <mat-label>Title</mat-label>
-    <input matInput formControlName="title" />
+    <input
+      matInput
+      formControlName="title"
+      [maxlength]="FIELD_MAX_LIMITS.title"
+    />
     <mat-error *ngIf="form.get('title')?.errors as errors">
       {{ errors | formError }}
     </mat-error>
@@ -10,7 +14,11 @@
   <!-- subtitle -->
   <mat-form-field>
     <mat-label>Subtitle</mat-label>
-    <input matInput formControlName="subtitle" />
+    <input
+      matInput
+      formControlName="subtitle"
+      [maxlength]="FIELD_MAX_LIMITS.subtitle"
+    />
     <mat-error *ngIf="form.get('subtitle')?.errors as errors">
       {{ errors | formError }}
     </mat-error>
@@ -46,7 +54,11 @@
   <!-- description -->
   <mat-form-field>
     <mat-label>Description</mat-label>
-    <textarea matInput formControlName="description"></textarea>
+    <textarea
+      matInput
+      formControlName="description"
+      [maxlength]="FIELD_MAX_LIMITS.description"
+    ></textarea>
     <mat-error *ngIf="form.get('description')?.errors as errors">
       {{ errors | formError }}
     </mat-error>
@@ -67,7 +79,11 @@
     </div>
     <mat-form-field *ngFor="let detail of details.controls; index as i">
       <mat-label>Detail</mat-label>
-      <input matInput [formControlName]="i" />
+      <input
+        matInput
+        [formControlName]="i"
+        [maxlength]="FIELD_MAX_LIMITS.detail"
+      />
       <div matSuffix>
         <button
           type="button"
@@ -85,7 +101,10 @@
     <mat-error *ngIf="details.errors as errors">
       {{ errors | formError }}
     </mat-error>
-    <mat-hint *ngIf="!details.errors && details.value.length === MAX_DETAILS"
+    <mat-hint
+      *ngIf="
+        !details.errors && details.value.length === FIELD_MAX_LIMITS.details
+      "
       >Max detail limit reached</mat-hint
     >
   </div>
