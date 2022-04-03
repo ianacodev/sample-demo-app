@@ -55,15 +55,13 @@
   <div class="product-form__details" formArrayName="details">
     <div class="product-form__details-header">
       <div fxLayout="row inline" fxLayoutAlign="start center" fxLayoutGap="5px">
-        <span>Add Detail</span>
         <button
           type="button"
           class="product-form__button-circle"
-          mat-mini-fab
-          color="primary"
+          mat-stroked-button
           (click)="addDetail()"
         >
-          <span class="product-form__button-text">+</span>
+          Add Detail
         </button>
       </div>
     </div>
@@ -74,11 +72,10 @@
         <button
           type="button"
           class="product-form__button-circle"
-          mat-mini-fab
-          color="warn"
+          mat-button
           (click)="removeDetail(i)"
         >
-          <span class="product-form__button-text">-</span>
+          X
         </button>
       </div>
       <mat-error *ngIf="details.at(i).errors as errors">

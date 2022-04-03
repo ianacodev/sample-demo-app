@@ -1,2 +1,10 @@
-.mat-mini-fab {
+.mat-button-base {
+  &.mat-mini-fab {
+    height: 2rem;
+    width: 2rem;
+    box-shadow: none;
+    &:not([class*="mat-elevation-z"]) {
+      box-shadow: none;
+    }
+  }
 }
