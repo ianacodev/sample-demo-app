@@ -19,5 +19,10 @@
 
   &__title {
     margin-bottom: 0;
+    word-break: break-all;
+  }
+
+  &__subtitle {
+    word-break: break-all;
   }
 }

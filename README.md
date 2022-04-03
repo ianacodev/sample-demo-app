@@ -6,6 +6,7 @@
 This app is a generic product website, the user can view the featured product collection, select a product item for detailed view, and add a new product to the collection.
 
 <br>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 # Overview

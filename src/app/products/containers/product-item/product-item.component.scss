@@ -9,6 +9,12 @@
     vertical-align: middle;
   }
 
+  &__panel {
+    &--left {
+      text-align: center;
+    }
+  }
+
   &__image-container {
     background: map-get(color.$windy-palette, 500);
     display: inline-block;
