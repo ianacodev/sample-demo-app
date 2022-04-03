@@ -1,10 +1,8 @@
 # SampleDemoApp
 
 > ### Sample website to demo different concepts and functionality
->
-> <br>
 
-<p>
+<p style="margin: 30px 0">
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 </p>
 
