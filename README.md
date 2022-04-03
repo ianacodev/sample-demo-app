@@ -2,9 +2,9 @@
 
 > ### Sample website to demo different concepts and functionality
 
-<p style="margin: 30px 0">
+<br>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
-</p>
 
 # <span style="color: gray">Overview</span>
 
