@@ -1,13 +1,22 @@
 # SampleDemoApp
 
+> ### Sample website to demo different concepts and functionality
+>
+> <br>
+
+<p>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+</p>
 
-## Overview
+# <span style="color: gray">Overview</span>
 
-[Design Adobe XD]:
-<a href="https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/?fullscreen" target="_blank">https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/?fullscreen</a>
+### **Design**
 
-[Demo Site]: <a href="https://ianacodev.github.io/sample-demo-app" target="_blank">https://ianacodev.github.io/sample-demo-app</a>
+<a href="https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/grid">VIEW ADOBE XD DESIGNS</a>
+
+### **Live Demo**:
+
+<a href="https://ianacodev.github.io/sample-demo-app" target="_blank">VIEW LIVE DEMO SITE</a>
 
 <img src="./src/assets/website-images/website-promo.png">
 
