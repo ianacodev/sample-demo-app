@@ -6,6 +6,6 @@ import { Product } from '../../models';
   selector: 'app-product-card',
   template: '',
 })
-export class ProductCardComponentStub {
+export class ProductCardStubComponent {
   @Input() product: Product | undefined;
 }

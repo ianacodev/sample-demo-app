@@ -31,6 +31,11 @@ $custom-typography-config: mat.define-typography-config(
   $font-family: $default-font-family,
   $subheading-2: typog.$open-sans-regular-level,
   $subheading-1: typog.$open-sans-bold-level,
+  $input:
+    mat.define-typography-level(
+      $font-size: 14px,
+      $line-height: 1.15,
+    ),
 );
 
 @include mat.core($custom-typography-config);

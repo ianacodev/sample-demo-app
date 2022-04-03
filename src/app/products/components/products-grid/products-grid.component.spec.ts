@@ -14,7 +14,7 @@ describe('ProductsGridComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         ProductsGridComponent,
-        fromProductsTest.ProductCardComponentStub,
+        fromProductsTest.ProductCardStubComponent,
       ],
     }).compileComponents();
   });

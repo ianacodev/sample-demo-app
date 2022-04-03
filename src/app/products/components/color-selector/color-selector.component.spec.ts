@@ -35,7 +35,7 @@ describe('ColorSelectorComponent', () => {
       declarations: [
         ColorSelectorComponent,
         TestHostComponent,
-        fromSharedTest.ColorSwatchComponentStub,
+        fromSharedTest.ColorSwatchStubComponent,
       ],
       imports: [ReactiveFormsModule],
     }).compileComponents();

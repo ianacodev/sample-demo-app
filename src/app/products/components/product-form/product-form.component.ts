@@ -24,7 +24,6 @@ import {
   ProductStatusTypes,
   ProductColorTypes,
   Option,
-  ValidatorTypes,
 } from './../../models';
 
 @Component({

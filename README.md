@@ -1,22 +1,40 @@
 # SampleDemoApp
 
-> ### Sample website to demo different concepts and functionality
+> ### Sample application to demo different concepts and functionality for angular and ngrx.
 
 <br>
+This app is a generic product website, the user can view the featured product collection, select a product item for detailed view, and add a new product to the collection.
 
+<br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 # Overview
 
 ### **Design**
 
-<a href="https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/grid">VIEW ADOBE XD DESIGNS</a>
+<a href="https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/grid">VIEW DESIGNS (Adobe XD)</a>
 
 ### **Live Demo**:
 
-<a href="https://ianacodev.github.io/sample-demo-app" target="_blank">VIEW LIVE DEMO SITE</a>
+<a href="https://ianacodev.github.io/sample-demo-app" target="_blank">VIEW LIVE DEMO</a>
 
-<img src="./src/assets/website-images/website-promo.png">
+<img src="./src/assets/website-images/website-promo-min.png">
+
+## Quick start
+
+```
+# install dependencies
+- npm install
+
+# start application and json server
+- npm run start:dev
+
+# Navigate to http://localhost:4200
+
+**Note for live demo purposes http requests to json server have been
+commented out and replaced with static data in the products service
+to prevent persisting data on demo usage. Uncomment to enable requests.
+```
 
 ## Development server
 

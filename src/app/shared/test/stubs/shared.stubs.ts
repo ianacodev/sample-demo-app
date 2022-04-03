@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-color-swatch',
   template: '',
 })
-export class ColorSwatchComponentStub {
+export class ColorSwatchStubComponent {
   @Input() color: string = '#DDDDDD';
 }
 
@@ -12,7 +12,7 @@ export class ColorSwatchComponentStub {
   selector: 'app-svg',
   template: '',
 })
-export class SvgComponentStub {
+export class SvgStubComponent {
   colorFill: string = '#f5f5f5';
   @Input() color: string = '';
 }
