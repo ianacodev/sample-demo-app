@@ -56,15 +56,15 @@ describe('ProductCardComponent', () => {
       ).nativeElement as HTMLElement;
       // assert
       const { product } = component;
-      expect(productCardLinkEl.getAttribute('href')).toEqual(
+      expect(productCardLinkEl.getAttribute('href')).toBe(
         `/main/products/${product?.id}`
       );
-      expect(productCardImageEl.getAttribute('ng-reflect-color')).toEqual(
+      expect(productCardImageEl.getAttribute('ng-reflect-color')).toBe(
         product?.color as string
       );
       expect(productCardTitleEl.textContent).toContain(product?.title);
       expect(productCardSubtitleEl.textContent).toContain(product?.subtitle);
-      expect(productCardColorSwatchEl.getAttribute('ng-reflect-color')).toEqual(
+      expect(productCardColorSwatchEl.getAttribute('ng-reflect-color')).toBe(
         product?.color as string
       );
     });

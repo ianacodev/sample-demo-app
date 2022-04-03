@@ -1,7 +1,7 @@
 // models
 import { Product } from '../../models';
 
-export const productsMock: Product[] = [
+export const productsMock: Required<Product>[] = [
   {
     id: '65a92309-da2d-4c18-92bf-abc1590d9741',
     title: 'Product A',

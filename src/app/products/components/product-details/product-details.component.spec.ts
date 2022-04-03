@@ -50,7 +50,7 @@ describe('ProductDetailsComponent', () => {
       ).nativeElement as HTMLElement;
       expect(productDetailsTitleEl.textContent).toContain(product?.title);
       expect(productDetailsSubtitleEl.textContent).toContain(product?.subtitle);
-      expect(colorSwatchEl.getAttribute('ng-reflect-color')).toEqual(
+      expect(colorSwatchEl.getAttribute('ng-reflect-color')).toBe(
         product?.color as string
       );
       expect(productDetailsStatusEl.textContent).toContain(product?.status);
@@ -65,7 +65,7 @@ describe('ProductDetailsComponent', () => {
       const productDetailsDescriptionTextEl = productDetailsDescriptionDe.query(
         By.css('.product-details__text')
       ).nativeElement as HTMLElement;
-      expect(productDetailsDescriptionTextEl.textContent).toEqual(
+      expect(productDetailsDescriptionTextEl.textContent).toBe(
         product?.description as string
       );
     });
