@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 // ngrx
 import { createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsGridComponent } from './products-grid.component';
 // models
 import { Product } from '../../models';
@@ -16,6 +17,7 @@ describe('ProductsGridComponent', () => {
         ProductsGridComponent,
         fromProductsTest.ProductCardStubComponent,
       ],
+      imports: [BrowserAnimationsModule],
     }).compileComponents();
   });
 
