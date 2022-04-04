@@ -30,14 +30,14 @@ export class RouterEffects {
   navigateBack$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.back),
-      tap(() => this.location.back)
+      tap(() => this.location.back())
     )
   );
 
   navigateForward$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.forward),
-      tap(() => this.location.forward)
+      tap(() => this.location.forward())
     )
   );
 }

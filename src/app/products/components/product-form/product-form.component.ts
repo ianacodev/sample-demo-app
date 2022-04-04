@@ -6,7 +6,6 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-  AfterViewInit,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -34,7 +33,7 @@ import {
   styleUrls: ['./product-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductFormComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ProductFormComponent implements OnInit, OnDestroy {
   readonly FIELD_MAX_LIMITS = {
     details: 4,
     title: 32,
@@ -50,11 +49,6 @@ export class ProductFormComponent implements OnInit, OnDestroy, AfterViewInit {
   @Output() submitEvent = new EventEmitter<Product>();
   get details() {
     return this.form.get('details') as FormArray;
-  }
-
-  ngAfterViewInit(): void {
-    // console.log('test', this.options['colors']);
-    // this.form.get('color')?.setValue('#0C97A1');
   }
 
   // custom validator

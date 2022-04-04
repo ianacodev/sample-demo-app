@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { Store, MemoizedSelector } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
@@ -9,13 +8,8 @@ import { Observable } from 'rxjs';
 import { ProductsEffects } from './products.effects';
 import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors';
-import * as fromProductsReducer from '../reducers/products.reducer';
-import * as fromRootStore from '../../../store';
-import { throwError } from 'rxjs';
 // services
 import { ProductsService } from '../../services/products.service';
-// models
-import { Product } from '../../models';
 // test
 import * as fromProductsTest from '../../test';
 
@@ -60,34 +54,57 @@ describe('Products Effects', () => {
       mockStore.overrideSelector(fromSelectors.selectProductsLoaded, false);
       const action = fromActions.loadProducts();
       const completion = fromActions.loadProductsSuccess({ products });
-      actions$ = hot('-a---', { a: action });
+      actions$ = hot('-a', { a: action });
       const response = cold('-a|', { a: products });
       const expected = cold('--b', { b: completion });
       productsServiceSpy.getProducts.and.returnValue(response);
       expect(effects.loadProducts$).toBeObservable(expected);
     });
 
-    it('should return LoadProductsSuccess with products', () => {
+    it('should return LoadProductsFail with error', () => {
       mockStore.overrideSelector(fromSelectors.selectProductsLoaded, false);
       const error = {} as HttpErrorResponse;
       const action = fromActions.loadProducts();
       const completion = fromActions.loadProductsFail({ error });
-      actions$ = hot('-a---', { a: action });
-      const response = cold('-#|', {}, error);
+      actions$ = hot('-a', { a: action });
+      const response = cold('-#', {}, error);
       const expected = cold('--b', { b: completion });
       productsServiceSpy.getProducts.and.returnValue(response);
       expect(effects.loadProducts$).toBeObservable(expected);
+    });
+
+    it('should filter on already loaded', () => {
+      mockStore.overrideSelector(fromSelectors.selectProductsLoaded, true);
+      const action = fromActions.loadProducts();
+      actions$ = hot('-a', { a: action });
+      const expected = cold('--');
+      expect(effects.loadProducts$).toBeObservable(expected);
+      expect(productsServiceSpy.getProducts).not.toHaveBeenCalled();
     });
 
     it('should return AddProductSuccess with product', () => {
       const product = products[0];
       const action = fromActions.addProduct({ product });
       const completion = fromActions.addProductSuccess({ product });
-      actions$ = hot('-a---', { a: action });
+      actions$ = hot('-a', { a: action });
       const response = cold('-a|', { a: product });
       const expected = cold('--b', { b: completion });
       productsServiceSpy.addProduct.and.returnValue(response);
       expect(effects.addProduct$).toBeObservable(expected);
+      expect(productsServiceSpy.addProduct).toHaveBeenCalledWith(product);
+    });
+
+    it('should return addProductFail with error', () => {
+      const product = products[0];
+      const error = {} as HttpErrorResponse;
+      const action = fromActions.addProduct({ product });
+      const completion = fromActions.addProductFail({ error });
+      actions$ = hot('-a', { a: action });
+      const response = cold('-#', {}, error);
+      const expected = cold('--b', { b: completion });
+      productsServiceSpy.addProduct.and.returnValue(response);
+      expect(effects.addProduct$).toBeObservable(expected);
+      expect(productsServiceSpy.addProduct).toHaveBeenCalledWith(product);
     });
   });
 });
