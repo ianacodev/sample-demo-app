@@ -5,11 +5,11 @@ import * as fromProductsReducer from './products.reducer';
 export const featureKey = 'products';
 
 export interface ProductsState {
-  [fromProductsReducer.productsStateKey]: fromProductsReducer.ProductsState;
+  [fromProductsReducer.productsFeatureKey]: fromProductsReducer.ProductsState;
 }
 
 export const reducers: ActionReducerMap<ProductsState> = {
-  [fromProductsReducer.productsStateKey]: fromProductsReducer.productsReducer,
+  [fromProductsReducer.productsFeatureKey]: fromProductsReducer.productsReducer,
 };
 
 // feature selector

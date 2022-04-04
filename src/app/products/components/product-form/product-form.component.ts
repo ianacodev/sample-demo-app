@@ -5,6 +5,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ChangeDetectionStrategy,
+  AfterViewInit,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -30,8 +32,9 @@ import {
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductFormComponent implements OnInit, OnDestroy {
+export class ProductFormComponent implements OnInit, OnDestroy, AfterViewInit {
   readonly FIELD_MAX_LIMITS = {
     details: 4,
     title: 32,
@@ -47,6 +50,11 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   @Output() submitEvent = new EventEmitter<Product>();
   get details() {
     return this.form.get('details') as FormArray;
+  }
+
+  ngAfterViewInit(): void {
+    // console.log('test', this.options['colors']);
+    // this.form.get('color')?.setValue('#0C97A1');
   }
 
   // custom validator
@@ -65,7 +73,8 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   };
 
   constructor(private fb: FormBuilder) {
-    this.setOptions();
+    this.options = this.getOptions();
+    const defaultColor = this.options['colors'][0];
     this.form = this.fb.group({
       title: [
         '',
@@ -84,7 +93,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         ],
       ],
       status: ['', [Validators.required]],
-      color: ['', [Validators.required]],
+      color: [defaultColor.value, [Validators.required]],
       description: ['', [Validators.required, Validators.maxLength(300)]],
       details: this.fb.array(
         [],
@@ -94,10 +103,12 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.form
-      .get('color')
-      ?.valueChanges.pipe(takeUntil(this.ngUnsubscribe$))
+    const colorControl = this.form.get('color') as AbstractControl;
+    colorControl.valueChanges
+      .pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe((color) => this.colorSelect.emit(color));
+    // emit any defaulted color from form initialize
+    this.colorSelect.emit(colorControl.value);
   }
 
   ngOnDestroy(): void {
@@ -105,8 +116,8 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe$.complete();
   }
 
-  setOptions(): void {
-    this.options = [
+  getOptions(): { [key: string]: Option<string>[] } {
+    const options = [
       { key: 'statuses', types: ProductStatusTypes },
       { key: 'colors', types: ProductColorTypes },
     ].reduce((options, obj) => {
@@ -117,6 +128,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       }));
       return { ...options, [key]: value };
     }, {});
+    return options;
   }
 
   createDetail(value: string = ''): FormControl {

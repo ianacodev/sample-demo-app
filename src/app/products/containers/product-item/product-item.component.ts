@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 // ngrx
 import { Store, select } from '@ngrx/store';
@@ -13,6 +13,7 @@ import { slideUpAnimation } from 'src/app/shared/animations';
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [slideUpAnimation],
 })
 export class ProductItemComponent implements OnInit {

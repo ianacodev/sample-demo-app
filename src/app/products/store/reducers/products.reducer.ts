@@ -6,7 +6,7 @@ import * as fromActions from '../actions';
 // models
 import { Product } from '../../models';
 
-export const productsStateKey = 'products';
+export const productsFeatureKey = 'products';
 
 export interface ProductsState extends EntityState<Required<Product>> {
   loading: boolean;
