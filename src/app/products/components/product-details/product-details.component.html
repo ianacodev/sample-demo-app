@@ -24,7 +24,7 @@
       <span>{{ product.description }}</span>
     </p>
   </div>
-  <div class="product-details__details">
+  <div class="product-details__details" *ngIf="product.details?.length">
     <div class="mat-title">Details</div>
     <ul class="product-details__details-items">
       <li
