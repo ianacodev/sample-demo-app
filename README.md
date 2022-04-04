@@ -3,9 +3,9 @@
 > ### Sample application to demo different concepts and functionality for angular and ngrx.
 
 <br>
+<p>
 This app is a generic product website, the user can view the featured product collection, select a product item for detailed view, and add a new product to the collection.
-
-<br>
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
