@@ -1,6 +1,13 @@
 @use "colorography" as color;
 
 .product-card {
+  &:hover {
+    .product-card__image-container {
+      box-shadow: 0 0 0.5rem map-get(color.$bark-palette, 300);
+      transition: box-shadow 200ms ease-in;
+    }
+  }
+
   &__link {
     text-decoration: none;
     color: inherit;

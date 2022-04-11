@@ -7,6 +7,17 @@
 This app is a generic product website, the user can view the featured product collection, select a product item for detailed view, and add a new product to the collection.
 </p>
 
+### Includes
+
+<ul>
+  <li>@ngrx/store</li>
+  <li>@ngrx/effects</li>
+  <li>@ngrx/router-store</li>
+  <li>@ngrx/entity</li>
+  <li>@ngrx/store-devtools</li>
+</ul>
+<br>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 # Overview
