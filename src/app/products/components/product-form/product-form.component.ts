@@ -8,11 +8,11 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
-  FormArray,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  UntypedFormArray,
   Validators,
-  FormControl,
+  UntypedFormControl,
   ValidatorFn,
   AbstractControl,
   ValidationErrors,
@@ -41,14 +41,14 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     description: 300,
     detail: 75,
   };
-  form: FormGroup;
+  form: UntypedFormGroup;
   options: { [key: string]: Option<string>[] } = {};
   ngUnsubscribe$ = new Subject<void>();
   @Input() product: Product | undefined;
   @Output() colorSelect = new EventEmitter<string>();
   @Output() submitEvent = new EventEmitter<Product>();
   get details() {
-    return this.form.get('details') as FormArray;
+    return this.form.get('details') as UntypedFormArray;
   }
 
   // custom validator
@@ -66,7 +66,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     };
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     this.options = this.getOptions();
     const defaultColor = this.options['colors'][0];
     this.form = this.fb.group({
@@ -125,7 +125,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     return options;
   }
 
-  createDetail(value: string = ''): FormControl {
+  createDetail(value: string = ''): UntypedFormControl {
     return this.fb.control(value, [
       Validators.required,
       Validators.maxLength(this.FIELD_MAX_LIMITS.detail),

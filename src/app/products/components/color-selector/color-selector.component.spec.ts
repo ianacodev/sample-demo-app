@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, ViewChild } from '@angular/core';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { ColorSelectorComponent } from './color-selector.component';
 // test
@@ -23,7 +23,7 @@ class TestHostComponent {
   @ViewChild(ColorSelectorComponent, { static: true })
   colorSelectorComponent: ColorSelectorComponent | undefined;
   testColors = testColors;
-  color = new FormControl('');
+  color = new UntypedFormControl('');
 }
 
 describe('ColorSelectorComponent', () => {
