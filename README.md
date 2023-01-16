@@ -24,7 +24,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### **Design**
 
-<a href="https://xd.adobe.com/view/13fab039-c1c2-4297-bd21-5488a9ebd219-46a9/grid">VIEW DESIGNS (Adobe XD)</a>
+<a href="https://xd.adobe.com/view/5061fc71-bf7c-432c-997e-c0c111648317-0532/grid">VIEW DESIGNS (Adobe XD)</a>
 
 ### **Live Demo**:
 
