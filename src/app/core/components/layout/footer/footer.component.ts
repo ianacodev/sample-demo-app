@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  copyright = '© 2022 Ianacodev';
+  copyright = '© 2023 Ianaco';
 }
